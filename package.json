@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-express",
+  "version": "1.0.0",
+  "description": "1. HTTP basics  2. RESTfull API 3. CRUD operations 4. Data Base operations 5. Postman (additional)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
