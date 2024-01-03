@@ -4,7 +4,8 @@
   "description": "1. HTTP basics  2. RESTfull API 3. CRUD operations 4. Data Base operations 5. Postman (additional)",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
