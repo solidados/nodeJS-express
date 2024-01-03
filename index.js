@@ -8,7 +8,7 @@ app.use(express.json())
 
 app.listen(PORT, ()=> console.log(`Server started on PORT: ${PORT}`))
 
-app.post('/', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).json('Server works...')
 })
 
