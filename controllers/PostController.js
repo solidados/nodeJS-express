@@ -13,19 +13,44 @@ class PostController {
   }
 
   async getAll(req, res) {
-
+    try {
+      const posts = await Post.find();
+      return res.json(posts);
+    }
+    catch (err) {
+      res.status(500).json(err)
+    }
   }
 
   async getOne(req, res) {
+    try {
+      const {id} = req.params
 
+      if (!id) return res.status(400).json({message: 'ID was not specified'})
+      const post = await Post.findById(id)
+      return res.json(post)
+    }
+    catch (err) {
+      res.status(500).json(err)
+    }
   }
 
   async update(req, res) {
+    try {
 
+    }
+    catch (err) {
+      res.status(500).json(err)
+    }
   }
 
   async delete(req, res) {
+    try {
 
+    }
+    catch (err) {
+      res.status(500).json(err)
+    }
   }
 }
 
