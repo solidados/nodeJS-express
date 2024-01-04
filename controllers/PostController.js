@@ -11,6 +11,22 @@ class PostController {
       res.status(500).json(err)
     }
   }
+
+  async getAll(req, res) {
+
+  }
+
+  async getOne(req, res) {
+
+  }
+
+  async update(req, res) {
+
+  }
+
+  async delete(req, res) {
+
+  }
 }
 
 module.exports = new PostController()

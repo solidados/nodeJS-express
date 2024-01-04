@@ -4,9 +4,9 @@ const PostController = require('../controllers/PostController.js')
 const router = new Router()
 
 router.post('/posts', PostController.create)
-router.get('/posts')
-router.get('/posts/:postId')
-router.put('/posts')
-router.delete('/posts/:postId')
+router.get('/posts', PostController.getAll)
+router.get('/posts/:postId', PostController.getOne)
+router.put('/posts', PostController.update)
+router.delete('/posts/:postId', PostController.delete)
 
 module.exports = router
