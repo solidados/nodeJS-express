@@ -25,8 +25,8 @@ class PostController {
   async getOne(req, res) {
     try {
       const {id} = req.params
-
       if (!id) return res.status(400).json({message: 'ID was not specified'})
+
       const post = await Post.findById(id)
       return res.json(post)
     }
@@ -37,7 +37,11 @@ class PostController {
 
   async update(req, res) {
     try {
+      const post = req.body
+      if(!post._id) return res.status(400).json({message: 'ID was not specified'})
 
+      const updatedPost = await Post.findByIdAndUpdate(post._id, post, {new: true})
+      return res.json(updatedPost)
     }
     catch (err) {
       res.status(500).json(err)
@@ -46,7 +50,11 @@ class PostController {
 
   async delete(req, res) {
     try {
+      const {id} = req.params
+      if(!id) return res.status(400).json({message: 'ID was not specified'})
 
+      const post = await Post.findByIdAndDelete(id);
+      return res.json(post)
     }
     catch (err) {
       res.status(500).json(err)
