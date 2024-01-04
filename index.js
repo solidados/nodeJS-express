@@ -16,11 +16,14 @@ app.use(express.json())
 /** All requests to DB are async, so I add async..await
  * that requests to DB would not block the main Thread*/
 app.post('/', async (req, res) => {
-  const {author, title, content, picture} = req.body;
-
-  const post = await Post.create({author, title, content, picture})
-
-  res.json(post)
+  try {
+    const {author, title, content, picture} = req.body;
+    const post = await Post.create({author, title, content, picture})
+    res.json(post)
+  }
+  catch (err) {
+    res.status(500).json(err)
+  }
 })
 
 async function startApp () {
