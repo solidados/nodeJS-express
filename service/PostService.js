@@ -1,7 +1,7 @@
 const Post = require("../posts/post-schema.js");
 
 class PostService {
-  async create(post){
+  async create(post, picture){
       return (await Post.create(post));
   }
 

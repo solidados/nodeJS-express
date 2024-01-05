@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const router = require('./router/Router.js')
+const fileUpload = require('express-fileupload')
 
 const dotenv = require('dotenv')
 dotenv.config()
@@ -11,6 +12,7 @@ const MONGO_DB = process.env.MONGO_DB;
 const app = express()
 
 app.use(express.json())
+app.use(fileUpload({}))
 app.use('/api', router)
 
 async function startApp () {
