@@ -1,8 +1,10 @@
 const Post = require("../posts/post-schema.js");
+const fileService = require('./fileService.js');
 
 class PostService {
   async create(post, picture){
-      return (await Post.create(post));
+      const fileName = fileService.saveFile(picture)
+      return (await Post.create({ ...post, picture: fileName }));
   }
 
   async getAll() {

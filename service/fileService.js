@@ -2,11 +2,11 @@ const uuid = require('uuid')
 const path = require('node:path')
 
 class FileService {
-  async saveFile(file) {
+  saveFile(file) {
     try {
-      const fileName = `${uuid.v4()}.jpeg`
-      const filePath = path.resolve(__dirname, 'static', fileName)
-      await file.mv(filePath)
+      const fileName = uuid.v4() + '.jpeg'
+      const filePath = path.resolve('static', fileName)
+      file.mv(filePath)
       return fileName;
     }
     catch (err) {
